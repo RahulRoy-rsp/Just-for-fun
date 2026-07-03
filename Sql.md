@@ -1007,3 +1007,529 @@ D. ORDER BY sorts the final result.
 
 ---
 
+Excellent. For the final set, I'd aim for the level of good SQL screening rounds (internships, freshers, junior developers, data analysts). These questions require understanding SQL's behavior, but they don't rely on advanced features like window functions or recursive CTEs.
+
+This progression gives learners a complete foundation:
+
+Set 1: Fundamentals
+
+Set 2: Query reasoning
+
+Set 3: Practical SQL thinking (below)
+
+
+
+---
+
+## Set 3
+
+Q1
+
+Given the table:
+
+ID	Name	Department	Salary
+
+1	Alice	IT	60000
+2	Bob	HR	50000
+3	Charlie	IT	70000
+4	David	Sales	50000
+
+
+What is the output?
+
+SELECT Department, COUNT(*)
+FROM Employees
+GROUP BY Department;
+
+A. One row with total employee count
+
+B. One row for each department with its employee count
+
+C. Total departments only
+
+D. Error
+
+
+---
+
+Q2
+
+Which query correctly finds employees whose salary is not between 40,000 and 60,000?
+
+A.
+
+WHERE Salary NOT BETWEEN 40000 AND 60000
+
+B.
+
+WHERE Salary <40000 AND Salary >60000
+
+C.
+
+WHERE Salary !=40000 AND 60000
+
+D.
+
+WHERE Salary OUTSIDE (40000,60000)
+
+
+---
+
+Q3
+
+Which SQL clause can contain aggregate functions like SUM() or AVG() directly?
+
+A. WHERE
+
+B. HAVING
+
+C. ORDER
+
+D. DISTINCT
+
+
+---
+
+Q4
+
+What will be returned?
+
+SELECT COUNT(*)
+FROM Employees
+WHERE Department='Finance';
+
+Assume there are no Finance employees.
+
+A. NULL
+
+B. Error
+
+C. 0
+
+D. 1
+
+
+---
+
+Q5
+
+Which query returns the highest salary in each department?
+
+A.
+
+SELECT MAX(Salary)
+FROM Employees;
+
+B.
+
+SELECT Department,
+MAX(Salary)
+FROM Employees
+GROUP BY Department;
+
+C.
+
+SELECT Department,
+Salary
+FROM Employees;
+
+D.
+
+SELECT Department
+HAVING MAX(Salary);
+
+
+---
+
+Q6
+
+Which statement about ORDER BY is TRUE?
+
+A. It always sorts ascending only.
+
+B. Multiple columns can be used for sorting.
+
+C. It works only with numeric columns.
+
+D. It removes duplicates before sorting.
+
+
+---
+
+Q7
+
+Suppose
+
+SELECT *
+FROM Employees
+LIMIT 5;
+
+The table has only 3 rows.
+
+The query returns
+
+A. Error
+
+B. First 3 rows
+
+C. NULL rows
+
+D. Empty result
+
+
+---
+
+Q8
+
+Which operator checks whether a value exists in a list?
+
+A. EXISTS
+
+B. BETWEEN
+
+C. IN
+
+D. LIKE
+
+
+---
+
+Q9
+
+Consider
+
+SELECT *
+FROM Employees
+WHERE Salary >50000
+ORDER BY Name;
+
+Which happens first logically?
+
+A. Sorting
+
+B. Filtering
+
+C. Displaying
+
+D. Removing duplicates
+
+
+---
+
+Q10
+
+What is returned?
+
+SELECT MIN(Salary),
+MAX(Salary)
+FROM Employees;
+
+A. One row
+
+B. Two rows
+
+C. Every employee
+
+D. Error
+
+
+---
+
+Q11
+
+Which statement is TRUE regarding DISTINCT?
+
+A. Removes duplicate rows from the result.
+
+B. Deletes duplicates from the table.
+
+C. Works only with numbers.
+
+D. Requires GROUP BY.
+
+
+---
+
+Q12
+
+Suppose
+
+Employees
+
+ID	Name
+
+1	Alice
+2	Bob
+3	Charlie
+
+
+Orders
+
+EmployeeID
+
+1
+1
+
+
+Using a LEFT JOIN, how many rows are returned?
+
+A. 2
+
+B. 3
+
+C. 4
+
+D. 5
+
+
+---
+
+Q13
+
+Which query returns employees whose department name contains the word Sales anywhere?
+
+A.
+
+LIKE '%Sales%'
+
+B.
+
+LIKE 'Sales%'
+
+C.
+
+LIKE '_Sales'
+
+D.
+
+LIKE 'Sales'
+
+
+---
+
+Q14
+
+Which statement about aggregate functions is FALSE?
+
+A. AVG ignores NULL values.
+
+B. SUM ignores NULL values.
+
+C. COUNT(column) counts NULL values.
+
+D. MAX ignores NULL values.
+
+
+---
+
+Q15
+
+Given
+
+SELECT Department,
+COUNT(*)
+FROM Employees
+GROUP BY Department
+HAVING COUNT(*)>=2;
+
+Which departments are returned?
+
+A. Every department
+
+B. Departments having at least two employees
+
+C. Departments with highest salary
+
+D. Departments sorted alphabetically
+
+
+---
+
+Q16
+
+Which query checks whether a column contains NULL values?
+
+A.
+
+WHERE Column=NULL
+
+B.
+
+WHERE Column IS NULL
+
+C.
+
+WHERE Column==NULL
+
+D.
+
+WHERE Column LIKE NULL
+
+
+---
+
+Q17
+
+Suppose
+
+SELECT *
+FROM Employees
+WHERE Name LIKE '%n';
+
+Which names match?
+
+A. Ryan
+
+B. John
+
+C. Ethan
+
+D. All of the above
+
+
+---
+
+Q18
+
+Which SQL statement removes only the table data but keeps the table structure?
+
+A. DROP TABLE
+
+B. DELETE TABLE
+
+C. TRUNCATE TABLE
+
+D. REMOVE TABLE
+
+
+---
+
+Q19
+
+Which statement is TRUE?
+
+A. Every table must have exactly one Foreign Key.
+
+B. Every table must have exactly one Primary Key (which may consist of one or more columns).
+
+C. Foreign Keys must always contain unique values.
+
+D. Primary Keys may contain NULL values.
+
+
+---
+
+Q20
+
+Suppose
+
+SELECT *
+FROM Employees
+WHERE Salary >
+(
+SELECT AVG(Salary)
+FROM Employees
+);
+
+The query returns
+
+A. Employees earning above the company average
+
+B. Employees earning the highest salary only
+
+C. Employees earning below average
+
+D. Every employee
+
+
+---
+
+Q21
+
+Which JOIN returns every possible combination of rows from both tables?
+
+A. INNER JOIN
+
+B. LEFT JOIN
+
+C. CROSS JOIN
+
+D. FULL JOIN
+
+
+---
+
+Q22
+
+Given
+
+SELECT COUNT(DISTINCT Department)
+FROM Employees;
+
+The result is
+
+A. Total employees
+
+B. Number of unique departments
+
+C. Number of duplicate departments
+
+D. Total rows
+
+
+---
+
+Q23
+
+Which statement about SQL execution order is correct?
+
+A. ORDER BY executes before WHERE.
+
+B. WHERE executes before GROUP BY.
+
+C. HAVING executes before GROUP BY.
+
+D. SELECT executes before FROM.
+
+
+---
+
+Q24
+
+Suppose
+
+SELECT Name,
+Salary
+FROM Employees
+ORDER BY Salary DESC,
+Name ASC;
+
+If two employees have the same salary, they are sorted by
+
+A. ID
+
+B. Name
+
+C. Department
+
+D. Random order
+
+
+---
+
+Q25
+
+Which of the following best explains why SQL beginners should use GROUP BY carefully?
+
+A. It automatically removes duplicate rows.
+
+B. Every selected column that is not aggregated generally must appear in the GROUP BY clause.
+
+C. It sorts the results automatically.
+
+D. It works only with numeric columns.
+
+
+---
+
+
